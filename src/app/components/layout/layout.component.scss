@@ -1,0 +1,9 @@
+:host {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    .side-bar {
+        max-width: 300px;
+        width: 100%;
+    }
+}

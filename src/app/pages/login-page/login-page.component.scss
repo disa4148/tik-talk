@@ -1,0 +1,35 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  max-width: 1200px;
+}
+
+form {
+  flex: 1;
+  max-width: 440px;
+}
+
+.form-container {
+  margin-top: 10%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+img {
+  flex-shrink: 0;
+  width: auto;
+  height: auto;
+  max-height: 430px;
+}
