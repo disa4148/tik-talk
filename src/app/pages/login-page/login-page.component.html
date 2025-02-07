@@ -1,5 +1,5 @@
 <div class="container">
-  <form action="" class="login-form">
+  <form class="login-form" [formGroup]="form" (ngSubmit)="onSubmit()">
     <h1>Логин</h1>
     <div class="form-container">
       <label class="tt-label">
@@ -10,6 +10,7 @@
           name="login"
           placeholder="Введите логин"
           required
+          formControlName="username"
         />
       </label>
       <label class="tt-label">
@@ -20,9 +21,10 @@
           name="password"
           placeholder="Введите пароль"
           required
+          formControlName="password"
         />
       </label>
-      <button class="btn" type="submit">Войти</button>
+      <button class="btn btn-shadow" type="submit">Войти</button>
     </div>
   </form>
 
