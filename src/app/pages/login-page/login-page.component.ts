@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -30,6 +30,7 @@ export class LoginPageComponent {
     password: new FormControl<string | null>(null, Validators.required),
   });
 
+  isPasswordVisible = signal<boolean>(false);
   onSubmit() {
     if (this.form.valid) {
       this.authService

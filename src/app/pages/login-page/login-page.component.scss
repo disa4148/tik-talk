@@ -33,3 +33,22 @@ img {
   height: auto;
   max-height: 430px;
 }
+
+.password-input, .telegram-input {
+  position: relative;
+}
+
+.password-eye-btn, .login-telegram-btn {
+  position: absolute;
+  right: 12px;
+  cursor: pointer;
+  top: 70%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--grey-color);
+}
+
+.password-eye-btn.active {
+  color: var(--primary-color);
+}
