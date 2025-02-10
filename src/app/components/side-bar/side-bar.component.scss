@@ -1,0 +1,39 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .logo {
+    padding: 12px 28px;
+  }
+
+  .nav-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 24px;
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: var(--light-color);
+      max-width: 100%;
+      padding: 10px 20px;
+      .nav-icon {
+        width: 24px;
+        height: 24px;
+      }
+      .chat-icon {
+        width: 20px;
+        height: 20px;
+      }
+      &:hover {
+        background: var(--smoke-color);
+        color: var(--primary-color);
+      }
+    }
+  }
+}

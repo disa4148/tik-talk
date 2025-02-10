@@ -1,1 +1,13 @@
-<p>side-bar works!</p>
+<div class="logo">
+    <img src="/assets/logotypes/small.svg" alt="Logo" class="logo-small"/>
+</div>
+<nav class="nav-bar">
+    @for (item of menuItems; track item.label) {
+        <button class="nav-item">
+            <svg icon={{item.icon}} class="icon"></svg>
+            <h4>{{item.label}}</h4>
+        </button>
+    }
+    <h6>Подписчики</h6>
+    <app-subscriber-card></app-subscriber-card>
+</nav>

@@ -5,6 +5,7 @@
     --light-color: #FFFFFF;
     --grey-color: #FFFFFFBF;
     --grey-color-dark: #5F646D;
+    --smoke-color: #161616;
     --primary-color: #AE7AFF;
 }
 
@@ -30,6 +31,25 @@ h1 {
     font-size: 48px;
     font-weight: 800;
     line-height: 58px;
+}
+
+h4 {
+    font-size: 18px;
+    font-weight: 700;
+    line-break: 24px;
+}
+
+h6 {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    color: var(--grey-color-dark);
+}
+
+.icon {
+    width: 16px !important;
+    height: 16px !important;
+    cursor: pointer;
 }
 
 .tt-label {
@@ -87,4 +107,10 @@ h1 {
         height: 100%;
         border-radius: 4px;
     }
+}
+
+.logo-small {
+    width: 60px;
+    height: 75px;
+    cursor: pointer;
 }
