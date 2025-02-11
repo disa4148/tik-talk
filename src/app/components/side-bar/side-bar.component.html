@@ -4,7 +4,7 @@
 <nav class="nav-bar">
     @for (item of menuItems; track item.label) {
         <button class="nav-item">
-            <svg icon={{item.icon}} class="icon"></svg>
+            <lucide-icon [img]="item.icon" class="icon"></lucide-icon>
             <h4>{{item.label}}</h4>
         </button>
     }

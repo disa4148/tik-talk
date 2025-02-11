@@ -1,35 +1,41 @@
 import { Component } from '@angular/core';
-import { SvgIconComponent } from '../svg-icon/svg-icon.component';
 import { SubscriberCardComponent } from "./subscriber-card/subscriber-card.component";
+import { LucideAngularModule, MessageCircle, Home, Search } from 'lucide-angular';
 
 type MenuItems = {
   label: string,
-  icon: string,
+  icon: typeof Home,
   link: string,
 }
 
 @Component({
   selector: 'app-side-bar',
-  imports: [SvgIconComponent, SubscriberCardComponent],
+  imports: [ SubscriberCardComponent, LucideAngularModule],
   templateUrl: './side-bar.component.html',
   styleUrl: './side-bar.component.scss'
 })
 
 export class SideBarComponent {
+  readonly icons = {
+    home: Home,
+    message: MessageCircle,
+    search: Search,
+  };
+
   menuItems: MenuItems[] = [
     {
       label: 'Моя страница',
-      icon: 'home',
+      icon: this.icons.home,
       link: '/profile'
     },
     {
       label: 'Чаты',
-      icon: 'message',
+      icon: this.icons.message,
       link: '/chats'
     },
     {
       label: 'Поиск',
-      icon: 'search',
+      icon: this.icons.search,
       link: '/'
     }
   ]
