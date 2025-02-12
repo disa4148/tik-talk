@@ -2,22 +2,16 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
-
-
-    .subscribers {
-        p {
-            margin-top: 16px;
-            color: var(--primary-color);
-        }
-    }
-    
 }
+
 .item {
     display: flex;
     align-items: center;
     gap: 16px;
+
     img {
         width: 38px;
         height: 38px;
+        border-radius: 100%;
     }
 }

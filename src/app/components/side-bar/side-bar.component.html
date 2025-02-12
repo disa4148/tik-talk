@@ -8,6 +8,34 @@
             <h4>{{item.label}}</h4>
         </button>
     }
-    <h6>Подписчики</h6>
-    <app-subscriber-card></app-subscriber-card>
 </nav>
+<section class="subscribers-section">
+    <h6>Подписчики</h6>
+    <div class="subscribers-list">
+    @for (item of subscribers$ | async; track item.id) {
+        <app-subscriber-card
+        [subscriber]="item"
+        ></app-subscriber-card>
+    }
+    </div>
+    <a [routerLink]="'/subscribers'" class="subscribers">
+        <p>Все подписчики</p>
+        <lucide-icon [img]="icons.chevronRight" class="chevron-right-icon" size="20" color="#AE7AFF"></lucide-icon>
+    </a>
+</section>
+@if (me(); as me) {
+<footer>
+    <div class="user">
+        <img [src]="me.avatarUrl 
+            ? (me.avatarUrl | imgUrl) 
+            : '/assets/images/avatar-placeholder.png'" 
+            alt="Avatar">
+        <h4>
+            {{me.username}}
+        </h4>
+    </div>
+    <a [routerLink]="'/settings'">
+        <lucide-icon [img]="icons.settings" size="22" color="#AE7AFF"></lucide-icon>
+    </a>
+</footer>
+}
