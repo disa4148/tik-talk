@@ -23,7 +23,7 @@ export class AuthService {
   get isAuth() {
     if (!this.accessToken)
       this.accessToken = this.cookieService.get('access_token');
-    this.refreshToken = this.cookieService.get('refresh_token');
+      this.refreshToken = this.cookieService.get('refresh_token');
 
     return !!this.accessToken;
   }
@@ -40,7 +40,7 @@ export class AuthService {
   refreshAuthToken() {
     return this.http
       .post<AuthResponse>(`${this.baseUrl}refresh`, {
-        refreshToken: this.refreshToken,
+        refresh_token: this.refreshToken,
       })
       .pipe(
         tap((val) => this.saveTokens(val)),

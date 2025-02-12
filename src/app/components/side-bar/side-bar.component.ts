@@ -22,7 +22,7 @@ type MenuItems = {
 
 export class SideBarComponent {
   profileService = inject(ProfileService);
-  subscribers$ = this.profileService.getSubscribersShortList();
+  subscribers$ = this.profileService.getSubscribersList(3);
   me = this.profileService.me;
 
   readonly icons = {

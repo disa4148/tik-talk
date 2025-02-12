@@ -1,1 +1,53 @@
-<p>profile-page works!</p>
+@if (profile$ | async; as profile) {
+<header>
+  <app-profile-header [profile]="profile"> </app-profile-header>
+  <a class="btn" [routerLink]="'/settings'">
+    Редактировать
+    <lucide-icon [img]="userRoundPenIcon" class="icon"></lucide-icon>
+  </a>
+</header>
+<main>
+    <div class="left-items">
+
+    </div>
+    <div class="right-items">
+        <div class="subscribers-wrapper section">
+            <div class="subscribers-title">
+                <h4>Подписчики</h4>
+                <div class="subscribers-counter">
+                    <h6>{{ (subscribers$ | async)?.length }}</h6>
+                </div>
+            </div>
+            <div class="subscribers-list">
+                @for (subscriber of subscribers$ | async; track subscriber.id) {
+                    <a [routerLink]="['/profile', subscriber.id]">
+                        <img class="avatar" [src]="subscriber.avatarUrl | imgUrl" [alt]="subscriber.lastName" />
+                    </a>
+                }
+                <a [routerLink]="['/search']">
+                    <lucide-icon [img]="circlePlusIcon" size="24" class="circle-icon"></lucide-icon>
+                </a>
+            </div>
+        </div>
+        @if (profile.stack.length > 0) {
+            <div class="skills-tags section">
+                <h4>Навыки</h4>
+                <div class="skills-list">
+                    @for (skill of profile.stack; track skill) {
+                        <div class="skills-tag">
+                          {{ skill }}
+                        </div>
+                        }
+                </div>
+            </div>
+        }
+        @if (profile.description) {
+            <div class="description-wrapper section">
+                <h4>О себе</h4>
+                <p>{{ profile.description }}</p>
+            </div>
+        }
+    </div>
+</main>
+
+}

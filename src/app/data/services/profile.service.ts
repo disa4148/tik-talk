@@ -5,12 +5,11 @@ import { Pageble } from '../interfaces/pageble.interface';
 import { map, pipe, tap } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 
 export class ProfileService {
-
-  constructor() { }
+  constructor() {}
 
   http = inject(HttpClient);
 
@@ -19,23 +18,28 @@ export class ProfileService {
   me = signal<Profile | null>(null);
 
   getTestAccounts() {
-    return this.http.get<Profile[]>(`${this.baseUrl}account/test_accounts`)
+    return this.http.get<Profile[]>(`${this.baseUrl}account/test_accounts`);
   }
 
-  getSubscribersShortList() {
-    return this.http.get<Pageble<Profile>>(
-      `${this.baseUrl}account/subscribers/?page=1&size=3`
-    ).pipe(
-      map((res: Pageble<Profile>) => res.items)
-    );
+  getSubscribersList(subsAmount: number) {
+    return this.http
+      .get<Pageble<Profile>>(
+        `${this.baseUrl}account/subscribers/?page=1&size=${subsAmount}`
+      )
+      .pipe(map((res: Pageble<Profile>) => res.items));
   }
 
   getMe() {
-    return this.http.get<Profile>(
-      `${this.baseUrl}account/me`
-    ).pipe(
-      tap((res: Profile) => this.me.set(res))
-    )
+    return this.http
+      .get<Profile>(`${this.baseUrl}account/me`)
+      .pipe(tap((res: Profile) => this.me.set(res)));
   }
-  
+
+  getProfile(id: string) {
+    console.log('вызвалась', `${this.baseUrl}account/${id}`);
+
+    return this.http
+      .get<Profile>(`${this.baseUrl}account/${id}`)
+      .pipe(tap((res: Profile) => this.me.set(res)));
+  }
 }
