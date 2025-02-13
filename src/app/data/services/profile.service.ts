@@ -36,10 +36,14 @@ export class ProfileService {
   }
 
   getProfile(id: string) {
-    console.log('вызвалась', `${this.baseUrl}account/${id}`);
-
     return this.http
       .get<Profile>(`${this.baseUrl}account/${id}`)
       .pipe(tap((res: Profile) => this.me.set(res)));
+  }
+
+  patchProfile(profile: Partial<Profile>) {
+    return this.http.patch<Profile>(
+      `${this.baseUrl}account/me`, 
+       profile);
   }
 }

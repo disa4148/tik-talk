@@ -85,6 +85,42 @@ p {
     width: 100%;
 }
 
+.tt-text-area {
+    min-height: 100px;
+    white-space: pre-wrap;
+    resize: vertical; 
+    width: 100%; 
+}
+
+.tt-text-area::placeholder {
+    text-align: left;
+    white-space: pre-wrap;
+}
+
+.tt-double-inputs-container {
+    display: flex;
+    gap: 24px;
+}
+
+.tt-input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.tt-double-input, .tt-single-input {
+    padding: 12px 0;
+    background: var(--dark-color);
+    border: none;
+    border-bottom: 1px solid var(--light-color);
+    color: var(--light-color);
+}
+
+.tt-double-input:focus-visible, .tt-single-input:focus-visible {
+    outline: none;
+    border-bottom-color: var(--primary-color);
+}
+
 .skills-tag {
     display: flex;
     align-items: center;
@@ -98,6 +134,18 @@ p {
 .btn {
     border: none;
     background: var(--primary-color);
+    padding: 10px 20px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 24px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.cancel-btn {
+    border: 1px solid var(--light-color);
+    background: var(--dark-color);
+    color: var(--light-color);
     padding: 10px 20px;
     font-weight: 700;
     font-size: 14px;

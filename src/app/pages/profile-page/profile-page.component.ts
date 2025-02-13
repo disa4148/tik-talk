@@ -9,10 +9,11 @@ import { UserRoundPen, CirclePlus } from 'lucide-angular';
 import { LucideAngularModule } from 'lucide-angular';
 import { RouterLink } from '@angular/router';
 import { ImgUrlPipe } from "../../helpers/pipes/img-url.pipe";
+import { PostComponent } from "./post/post.component";
 
 @Component({
   selector: 'app-profile-page',
-  imports: [ProfileHeaderComponent, AsyncPipe, LucideAngularModule, RouterLink, ImgUrlPipe],
+  imports: [ProfileHeaderComponent, AsyncPipe, LucideAngularModule, RouterLink, ImgUrlPipe, PostComponent],
   templateUrl: './profile-page.component.html',
   styleUrl: './profile-page.component.scss',
 })

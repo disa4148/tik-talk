@@ -1,0 +1,71 @@
+<div class="left-items"></div>
+
+<form class="right-items" [formGroup]="form">
+  <div class="tt-double-inputs-container">
+    <label class="tt-label tt-input-container">
+      Имя
+      <input
+        class="tt-double-input"
+        type="text"
+        name="firstName"
+        placeholder="Введите имя"
+        formControlName="firstName"
+      />
+    </label>
+    <label class="tt-label tt-input-container">
+      Фамилия
+      <input
+        class="tt-double-input"
+        type="text"
+        name="lastName"
+        placeholder="Введите фамилию"
+        formControlName="lastName"
+      />
+    </label>
+  </div>
+  <div>
+    <label class="tt-label tt-input-container">
+      username
+      <input
+        class="tt-single-input"
+        type="text"
+        name="username"
+        placeholder="Введите свой никнейм"
+        formControlName="username"
+      />
+    </label>
+  </div>
+  <div>
+    <label class="tt-label tt-input-container">
+        О себе
+        <textarea
+        class="tt-single-input tt-text-area"
+        name="description"
+        placeholder="Поделитесь информацией о себе: ваши увлечения, профессиональный опыт или интересные факты."
+        formControlName="description"
+      ></textarea>
+      </label>
+  </div>
+  <div>
+    <label class="tt-label tt-input-container">
+      Навыки
+      <input
+        class="tt-single-input"
+        type="text"
+        name="stack"
+        placeholder="Перечислите свои навыки"
+        formControlName="stack"
+      />
+    </label>
+  </div>
+  <div class="buttons-container">
+    <div class="buttons-group">
+      
+    </div>
+    <div class="buttons-group">
+      <button class="cancel-btn" type="reset">Отмена</button>
+      <button (click)="onSubmit()" class="btn" type="submit">Сохранить</button>
+    </div>
+  </div>
+</form>
+
