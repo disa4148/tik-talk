@@ -3,10 +3,10 @@
 </div>
 <nav class="nav-bar">
     @for (item of menuItems; track item.label) {
-        <button class="nav-item">
+        <a [routerLink]="[item.link]" class="nav-item">
             <lucide-icon [img]="item.icon" class="icon"></lucide-icon>
             <h4>{{item.label}}</h4>
-        </button>
+        </a>
     }
 </nav>
 <section class="subscribers-section">
@@ -25,7 +25,7 @@
 </section>
 @if (me(); as me) {
 <footer>
-    <div class="user">
+    <a [routerLink]="'/profile/me'" class="user">
         <img [src]="me.avatarUrl 
             ? (me.avatarUrl | imgUrl) 
             : '/assets/images/avatar-placeholder.png'" 
@@ -33,7 +33,7 @@
         <h4>
             {{me.username}}
         </h4>
-    </div>
+    </a>
     <a [routerLink]="'/settings'">
         <lucide-icon [img]="icons.settings" size="22" color="#AE7AFF"></lucide-icon>
     </a>

@@ -1,10 +1,12 @@
 @if (profile$ | async; as profile) {
 <header>
   <app-profile-header [profile]="profile"> </app-profile-header>
-  <a class="btn" [routerLink]="'/settings'">
-    Редактировать
-    <lucide-icon [img]="userRoundPenIcon" class="icon"></lucide-icon>
-  </a>
+  @if ((route.params | async)?.['id'] === 'me') {
+    <a class="btn" [routerLink]="'/settings'">
+      Редактировать
+      <lucide-icon [img]="userRoundPenIcon" class="icon"></lucide-icon>
+    </a>
+  }
 </header>
 <main>
     <div class="left-items">

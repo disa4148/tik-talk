@@ -36,9 +36,7 @@ export class ProfileService {
   }
 
   getProfile(id: string) {
-    return this.http
-      .get<Profile>(`${this.baseUrl}account/${id}`)
-      .pipe(tap((res: Profile) => this.me.set(res)));
+    return this.http.get<Profile>(`${this.baseUrl}account/${id}`);
   }
 
   patchProfile(profile: Partial<Profile>) {

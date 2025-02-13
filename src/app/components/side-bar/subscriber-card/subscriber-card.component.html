@@ -1,4 +1,4 @@
-<div class="item">
+<a [routerLink]="['/profile', subscriber.id]" class="item">
     <img [src]="subscriber.avatarUrl | imgUrl" [alt]="subscriber.lastName" />
     <h4>{{subscriber.firstName}} {{subscriber.lastName}}</h4>
-</div>
+</a>
