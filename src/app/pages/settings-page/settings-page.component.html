@@ -37,35 +37,39 @@
   </div>
   <div>
     <label class="tt-label tt-input-container">
-        О себе
-        <textarea
+      О себе
+      <textarea
         class="tt-single-input tt-text-area"
         name="description"
         placeholder="Поделитесь информацией о себе: ваши увлечения, профессиональный опыт или интересные факты."
         formControlName="description"
       ></textarea>
-      </label>
+    </label>
   </div>
   <div>
     <label class="tt-label tt-input-container">
       Навыки
-      <input
-        class="tt-single-input"
-        type="text"
-        name="stack"
-        placeholder="Перечислите свои навыки"
-        formControlName="stack"
-      />
+      <div class="tags-container">
+        @for (skill of form.value.stack; track skill) {
+        <span class="tag">
+          {{ skill }}
+          <button type="button" (click)="removeSkill(skill)">×</button>
+        </span>
+        }
+        <input
+          class="tag-input"
+          type="text"
+          placeholder="Введите навык и нажмите Enter"
+          (keydown)="addSkill($event)"
+        />
+      </div>
     </label>
   </div>
   <div class="buttons-container">
-    <div class="buttons-group">
-      
-    </div>
+    <div class="buttons-group"></div>
     <div class="buttons-group">
       <button class="cancel-btn" type="reset">Отмена</button>
       <button (click)="onSubmit()" class="btn" type="submit">Сохранить</button>
     </div>
   </div>
 </form>
-

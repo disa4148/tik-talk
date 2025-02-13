@@ -1,31 +1,76 @@
 :host {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  form {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 20px;
+    padding: 32px;
+    border: 1px solid var(--light-color);
+    background-color: var(--dark-color);
 
-    form {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        padding: 32px;
-        border: 1px solid var(--light-color);
-        background-color: var(--dark-color);
-
-        label {
-            color: var(--grey-color);
-        }
-
-        .buttons-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            .buttons-group {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                gap: 10px;
-            }
-        }
+    label {
+      color: var(--grey-color);
     }
+
+    .tags-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      padding: 5px;
+      border-bottom: 1px solid var(--light-color);
+      background: var(--input-bg);
+      border-radius: 5px;
+      min-height: 40px;
+      max-width: 422px;
+      align-items: center;
+    }
+
+    .tag {
+      background: var(--dark-color);
+      border: 1px solid var(--primary-color);
+      color: white;
+      padding: 3px 8px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+
+      button {
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        font-size: 24px;
+        padding: 0;
+        max-width: max-content;
+        max-height: max-content;
+      }
+    }
+
+    .tag-input {
+      border: none;
+      background: none;
+      outline: none;
+      color: white;
+      font-size: 14px;
+      padding: 5px;
+      flex-grow: 1;
+    }
+
+    .buttons-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .buttons-group {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+      }
+    }
+  }
 }
