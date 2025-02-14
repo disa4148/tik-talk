@@ -10,7 +10,7 @@
     padding: 32px;
     border: 1px solid var(--light-color);
     background-color: var(--dark-color);
-
+    max-width: 680px;
     label {
       color: var(--grey-color);
     }
@@ -24,7 +24,7 @@
       background: var(--input-bg);
       border-radius: 5px;
       min-height: 40px;
-      max-width: 422px;
+      max-width: 614px;
       align-items: center;
     }
 

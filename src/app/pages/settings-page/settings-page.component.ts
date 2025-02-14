@@ -1,12 +1,13 @@
-import { Component, inject, effect } from '@angular/core';
+import { Component, inject, effect, ViewChild } from '@angular/core';
 import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { ProfileService } from '../../data/services/profile.service';
 import { firstValueFrom } from 'rxjs';
 import { Profile } from '../../data/interfaces/profile.interface';
+import { AvatarUploadComponent } from "./avatar-upload/avatar-upload.component";
 
 @Component({
   selector: 'app-settings-page',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, AvatarUploadComponent],
   templateUrl: './settings-page.component.html',
   styleUrl: './settings-page.component.scss',
 })
@@ -14,6 +15,8 @@ import { Profile } from '../../data/interfaces/profile.interface';
 export class SettingsPageComponent {
   fb = inject(FormBuilder);
   profileService = inject(ProfileService);
+
+  @ViewChild(AvatarUploadComponent) avatarUploader!: AvatarUploadComponent
 
   form = this.fb.group({
     firstName: ['', Validators.required],
@@ -32,11 +35,19 @@ export class SettingsPageComponent {
     });
   }
 
+  ngAfterViewInit() {
+    this.avatarUploader.avatar
+  }
+
   onSubmit() {
     this.form.markAllAsTouched();
     this.form.updateValueAndValidity();
 
     if (this.form.invalid) return;
+
+    if (this.avatarUploader.avatar) {
+      firstValueFrom(this.profileService.uploadAvatar(this.avatarUploader.avatar))
+    }
 
     firstValueFrom(
       this.profileService.patchProfile(this.form.value as Partial<Profile>)

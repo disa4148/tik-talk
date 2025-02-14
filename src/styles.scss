@@ -100,12 +100,14 @@ p {
 .tt-double-inputs-container {
     display: flex;
     gap: 24px;
+    width: 100%;
 }
 
 .tt-input-container {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    width: 100%;
 }
 
 .tt-double-input, .tt-single-input {
